@@ -9,6 +9,7 @@ module.exports = {
       sans: ['Montserrat', 'sans-serif'],
     },
     colors: {
+      'nord-00': '#2B313C',
       'nord-0': '#2E3440',
       'nord-1': '#3B4252',
       'nord-2': '#434C5E',

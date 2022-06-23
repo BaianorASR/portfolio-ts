@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 body {
-  @apply bg-nord-0 text-nord-6 h-screen
+  @apply bg-nord-00 text-nord-6 h-screen
 }
