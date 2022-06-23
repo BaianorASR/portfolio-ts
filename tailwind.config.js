@@ -1,9 +1,7 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-      "./pages/**/*.{js,ts,jsx,tsx}",
-      "./components/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   theme: {
     fontFamily: {
       sans: ['Montserrat', 'sans-serif'],
@@ -29,15 +27,25 @@ module.exports = {
     },
     extend: {
       animation: {
-          fade: 'fadeOut 0.5s ease',
+        fade: 'fadeOut 0.5s ease',
+        travelIn: 'travelIn 40s linear infinite',
+        travelOut: 'travelOut 40s linear infinite',
+      },
+      keyframes: theme => ({
+        fadeOut: {
+          '0%': { opacity: 0 },
+          '100%': { opacity: 100 },
         },
-        keyframes: theme => ({
-          fadeOut: {
-            '0%': {opacity: 0},
-            '100%': {opacity: 100},
-          },
-        }),
-      }
+        travelIn: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
+        travelOut: {
+          '0%': { transform: 'translateX(-50%)' },
+          '100%': { transform: 'translateX(0%)' },
+        },
+      }),
+    },
   },
   plugins: [],
 };
