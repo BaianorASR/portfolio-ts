@@ -6,7 +6,7 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      sans: ['Roboto', 'sans-serif'],
+      sans: ['Montserrat', 'sans-serif'],
     },
     colors: {
       'nord-0': '#2E3440',
@@ -25,7 +25,18 @@ module.exports = {
       'nord-13': '#EBCB8B',
       'nord-14': '#A3BE8C',
       'nord-15': '#B48EAD',
-},
+    },
+    extend: {
+      animation: {
+          fade: 'fadeOut 0.5s ease',
+        },
+        keyframes: theme => ({
+          fadeOut: {
+            '0%': {opacity: 0},
+            '100%': {opacity: 100},
+          },
+        }),
+      }
   },
   plugins: [],
 };

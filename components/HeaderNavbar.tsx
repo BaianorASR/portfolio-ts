@@ -25,22 +25,22 @@ export function HeaderNavBar() {
   }, [isVisibleHamburger, width]);
 
   return (
-    <>
+    <div className="relative">
       {isVisibleHamburger && (
         <div
-          className="-order-1 flex flex-col justify-start content-start items-start transition-all"
+          className={`flex flex-col items-start content-start justify-start transition-all ${isNavOpen && 'backdrop-brightness-90'} rounded mr-3`}
           onClick={() => setIsNavOpen(prev => !prev)}
         >
-          <List size={32} className="text-nord-14" />
+          <List size={32} className={`${isNavOpen ? 'text-nord-7' : 'text-nord-5'}`} />
         </div>
       )}
-                {isNavOpen && (
-            <nav className="bg-nord-1 text-nord-5 border border-nord-2 rounded transition-all shadow p-3 flex flex-col sm:flex-row absolute top-10 sm:top-2 sm:right-4">
-              <p className="px-3 py-1 hover:bg-nord-0 rounded">Sobre</p>
-              <p className="px-3 py-1 hover:bg-nord-0 rounded">Projetos</p>
-              <p className="px-3 py-1 hover:bg-nord-0 rounded">Contatos</p>
-            </nav>
-          )}
-    </>
+        {isNavOpen && (
+          <nav className=" text-nord-5 border-nord-2 sm:flex-row top-10 sm:p-0 sm:relative sm:top-0 sm:right-4 sm:shadow-none sm:border-none sm:bg-[transparent] absolute flex flex-col p-2 border rounded shadow right-4 animate-fade bg-nord-0 backdrop-filter backdrop-blur">
+            <p className="hover:bg-nord-0 sm:hover:bg-nord-1 hover:text-nord-7 px-3 py-1 rounded cursor-pointer">Sobre</p>
+            <p className="hover:bg-nord-0 sm:hover:bg-nord-1 hover:text-nord-7 px-3 py-1 rounded cursor-pointer">Projetos</p>
+            <p className="hover:bg-nord-0 sm:hover:bg-nord-1 hover:text-nord-7 px-3 py-1 rounded cursor-pointer">Contatos</p>
+          </nav>
+        )}
+    </div>
   );
 }
