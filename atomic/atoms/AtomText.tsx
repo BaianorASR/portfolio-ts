@@ -1,8 +1,8 @@
-import React, { FC } from 'react';
+import { FC, HTMLAttributes } from 'react';
 
 type AtomTextProps = {
   tailwindClass?: string;
-} & React.HTMLAttributes<HTMLParagraphElement>;
+} & HTMLAttributes<HTMLParagraphElement>;
 
 export const AtomText: FC<AtomTextProps> = ({ tailwindClass, children, ...props }) => {
   return (

@@ -2,9 +2,9 @@ import type { GetStaticProps, NextPage } from 'next';
 import dynamic from 'next/dynamic';
 import { Circle } from 'phosphor-react';
 
+import { OrganismContact } from '../atomic/organisms/OrganismContact';
 import { OrganismIntroduction } from '../atomic/organisms/OrganismIntro';
 import { TemplateStacks as StacksType } from '../atomic/templates/TemplateStack';
-import { Contact } from '../components/Contact';
 import { Footer } from '../components/Footer';
 import { Projects } from '../components/Projects';
 import type { IStacksResponse } from '../interfaces/IStacksResponse';
@@ -35,7 +35,7 @@ const Home: NextPage<HomePageProps> = ({ stacks }) => {
       <OrganismIntroduction />
       <DynamicTemplateStacks stacksContent={stacks} />
       <Projects />
-      <Contact />
+      <OrganismContact />
       <Footer />
     </div>
   );

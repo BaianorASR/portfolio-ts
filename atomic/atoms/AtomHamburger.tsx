@@ -1,5 +1,5 @@
 import { List } from 'phosphor-react';
-import React, { Dispatch, FC, SetStateAction } from 'react';
+import { Dispatch, FC, SetStateAction } from 'react';
 
 type AtomHamburgerProps = {
   tailwindClass?: string;
