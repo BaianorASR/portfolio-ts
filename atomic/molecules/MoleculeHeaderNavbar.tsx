@@ -11,16 +11,15 @@ export const MoleculeHeaderNavbar: FC = () => {
   const [isVisibleHamburger, setIsVisibleHamburger] = useState(false);
 
   useEffect(() => {
-    if (lastWidth.current > 640 && width <= 640) {
-      setIsNavOpen(false);
-      return;
-    }
     if (width > 640) {
+      lastWidth.current = width;
       setIsNavOpen(true);
       if (isVisibleHamburger) setIsVisibleHamburger(false);
     } else if (!isVisibleHamburger) setIsVisibleHamburger(true);
 
-    lastWidth.current = width;
+    if (lastWidth.current >= 640 && width <= 640) {
+      setIsNavOpen(false);
+    }
   }, [isVisibleHamburger, width]);
 
   return (

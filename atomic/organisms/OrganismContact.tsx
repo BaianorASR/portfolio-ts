@@ -6,7 +6,7 @@ import { MoleculeContactForm } from '../molecules/MoleculeContactForm';
 
 export const OrganismContact: FC = () => {
   return (
-    <section className="border-nord-1 flex flex-col items-center border-t">
+    <section className="flex flex-col items-center">
       <AtomTitle tailwindClass="text-nord-13 my-3 text-4xl font-bold text-center">
         Contato
       </AtomTitle>
