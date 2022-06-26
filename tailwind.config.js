@@ -1,12 +1,13 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
+  content: ['./pages/**/*.{js,ts,jsx,tsx}', './**/*.tsx'],
   theme: {
     fontFamily: {
       sans: ['Montserrat', 'sans-serif'],
     },
     colors: {
+      'nord-000': '#292E39',
       'nord-00': '#2B313C',
       'nord-0': '#2E3440',
       'nord-1': '#3B4252',
@@ -28,8 +29,8 @@ module.exports = {
     extend: {
       animation: {
         fade: 'fadeOut 0.5s ease',
-        travelIn: 'travelIn 40s linear infinite',
-        travelOut: 'travelOut 40s linear infinite',
+        travelIn: 'travelIn 50s linear infinite',
+        travelOut: 'travelOut 50s linear infinite',
       },
       keyframes: theme => ({
         fadeOut: {

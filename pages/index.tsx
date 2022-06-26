@@ -1,21 +1,61 @@
-import type { NextPage } from 'next';
+import type { GetStaticProps, NextPage } from 'next';
+import dynamic from 'next/dynamic';
+import { Circle } from 'phosphor-react';
 
+import { OrganismIntroduction } from '../atomic/organisms/OrganismIntro';
+import { TemplateStacks as StacksType } from '../atomic/templates/TemplateStack';
 import { Contact } from '../components/Contact';
 import { Footer } from '../components/Footer';
-import { Intro } from '../components/Intro';
 import { Projects } from '../components/Projects';
-import { Stacks } from '../components/Stacks';
+import type { IStacksResponse } from '../interfaces/IStacksResponse';
+import portfolioApi from '../services/axios';
 
-const Home: NextPage = () => {
+const DynamicTemplateStacks = dynamic<React.ComponentProps<typeof StacksType>>(
+  () =>
+    import('../atomic/templates/TemplateStack').then(
+      ({ TemplateStacks }) => TemplateStacks,
+    ),
+  {
+    ssr: false,
+    loading: () => <Circle className="animate-spin" />,
+  },
+);
+
+type HomePageProps = {
+  stacks: {
+    id: number;
+    name: string;
+    icon: string;
+  }[];
+};
+
+const Home: NextPage<HomePageProps> = ({ stacks }) => {
   return (
     <div>
-      <Intro />
-      <Stacks />
+      <OrganismIntroduction />
+      <DynamicTemplateStacks stacksContent={stacks} />
       <Projects />
       <Contact />
       <Footer />
     </div>
   );
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+  const {
+    data: { data },
+  } = await portfolioApi.get<IStacksResponse>('/stacks');
+
+  const stacks = data.map(({ attributes, id }) => ({
+    id,
+    name: attributes.name,
+    icon: attributes.svg,
+  }));
+
+  return {
+    props: { stacks },
+    revalidate: 60 * 60 * 24, // 1 day
+  };
 };
 
 export default Home;

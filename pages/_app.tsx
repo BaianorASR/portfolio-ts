@@ -2,12 +2,12 @@ import '../styles/globals.css';
 
 import type { AppProps } from 'next/app';
 
-import { Header } from '../components/Header';
+import { OrganismHeader } from '../atomic/organisms/OrganismHeader';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
-      <Header />
+      <OrganismHeader />
       <Component {...pageProps} />
     </>
   );
