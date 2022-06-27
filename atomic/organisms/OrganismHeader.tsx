@@ -1,7 +1,20 @@
+import dynamic from 'next/dynamic';
+import { Circle } from 'phosphor-react';
 import { FC } from 'react';
 
 import { AtomTitle } from '../atoms/AtomTitle';
 import { MoleculeHeaderNavbar } from '../molecules/MoleculeHeaderNavbar';
+
+const NavBar = dynamic<React.ComponentProps<typeof MoleculeHeaderNavbar>>(
+  () =>
+    import('../molecules/MoleculeHeaderNavbar').then(
+      ({ MoleculeHeaderNavbar }) => MoleculeHeaderNavbar,
+    ),
+  {
+    ssr: false,
+    loading: () => <Circle className="animate-spin" />,
+  },
+);
 
 export const OrganismHeader: FC = () => {
   return (
@@ -10,7 +23,7 @@ export const OrganismHeader: FC = () => {
         <AtomTitle tailwindClass="text-nord-13 animate-pulse flex text-xl font-bold">
           Baianim.ts
         </AtomTitle>
-        <MoleculeHeaderNavbar />
+        <NavBar />
       </div>
     </header>
   );

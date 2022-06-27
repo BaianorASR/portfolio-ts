@@ -34,7 +34,7 @@ export const MoleculeHeaderNavbar: FC = () => {
       {isNavOpen && (
         <nav className=" text-nord-5 border-nord-2 sm:flex-row top-10 sm:p-0 sm:relative sm:top-0 sm:right-4 sm:shadow-none sm:border-none sm:bg-[transparent] absolute flex flex-col p-2 border rounded shadow right-4 animate-fade bg-nord-0 backdrop-filter backdrop-blur">
           <AtomText tailwindClass="hover:bg-nord-0 sm:hover:bg-nord-1 hover:text-nord-7 px-3 py-1 rounded cursor-pointer">
-            Sobre
+            <a href="#contact">Sobre</a>
           </AtomText>
           <AtomText tailwindClass="hover:bg-nord-0 sm:hover:bg-nord-1 hover:text-nord-7 px-3 py-1 rounded cursor-pointer">
             Projetos

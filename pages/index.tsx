@@ -35,7 +35,7 @@ const Home: NextPage<HomePageProps> = ({ stacks }) => {
       <OrganismIntroduction />
       <DynamicTemplateStacks stacksContent={stacks} />
       <Projects />
-      <OrganismContact />
+      {/* <OrganismContact /> */}
       <Footer />
     </div>
   );

@@ -31,6 +31,7 @@ module.exports = {
         fade: 'fadeOut 0.5s ease',
         travelIn: 'travelIn 50s linear infinite',
         travelOut: 'travelOut 50s linear infinite',
+        waving: 'wave 2s linear infinite',
       },
       keyframes: theme => ({
         fadeOut: {
@@ -44,6 +45,16 @@ module.exports = {
         travelOut: {
           '0%': { transform: 'translateX(-50%)' },
           '100%': { transform: 'translateX(0%)' },
+        },
+        wave: {
+          '0%': { transform: 'rotate(0.0deg)' },
+          '10%': { transform: 'rotate(14deg)' },
+          '20%': { transform: 'rotate(-8deg)' },
+          '30%': { transform: 'rotate(14deg)' },
+          '40%': { transform: 'rotate(-4deg)' },
+          '50%': { transform: 'rotate(10.0deg)' },
+          '60%': { transform: 'rotate(0.0deg)' },
+          '100%': { transform: 'rotate(0.0deg)' },
         },
       }),
     },
